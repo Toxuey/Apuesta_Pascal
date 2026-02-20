@@ -1,73 +1,90 @@
-# React + TypeScript + Vite
+# La Apuesta de Pascal
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Experimento web interactivo sobre la Apuesta de Pascal, diseñado con una estética filosófica, minimalista y oscura.
 
-Currently, two official plugins are available:
+## Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Vite
+- React + TypeScript
+- Tailwind CSS
+- shadcn/ui
+- Framer Motion
 
-## React Compiler
+## Qué construimos
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Aplicación por etapas con animaciones suaves y enfoque reflexivo:
 
-## Expanding the ESLint configuration
+1. **Intro**
+- Presenta la idea clásica de Pascal.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+2. **Supuestos ocultos**
+- Expone tres supuestos filosóficos clave.
+- Botón de avance siempre visible para no perder el foco de la ruleta.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+3. **Decisión del usuario**
+- Opciones: `Creo`, `No creo`, `No estoy seguro`.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+4. **Ruleta filosófica**
+- Ruleta visual con `conic-gradient`.
+- Flecha superior y desaceleración natural.
+- Texto central dinámico sincronizado con el giro.
+- Al detenerse, resultado fijo + botón **Continuar reflexión**.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+5. **Resultado reflexivo**
+- Mensaje final en formato:
+  - `Serás juzgado por: [resultado] ...`
+- Caso especial para `No hay ningún Dios`.
+
+6. **Pantalla final**
+- Cierre filosófico.
+- Botones: `Intentar de nuevo` y `SABER MÁS`.
+
+7. **SABER MÁS (pantalla dedicada)**
+- Explicación extendida del argumento, críticas filosóficas y cierre neutral.
+
+## Estilo visual
+
+- Fondo principal: `#0B0B0F`
+- Fondo secundario: `#111118`
+- Texto principal: `#EAEAEA`
+- Texto secundario: `#9CA3AF`
+- Acento: `#3B82F6`
+- Tipografías: **Playfair Display** (títulos) + **Inter** (texto)
+
+## Estructura principal
+
+- `src/App.tsx`
+- `src/components/Intro.tsx`
+- `src/components/HiddenAssumptions.tsx`
+- `src/components/Decision.tsx`
+- `src/components/Roulette.tsx`
+- `src/components/Result.tsx`
+- `src/components/FinalScreen.tsx`
+- `src/components/LearnMoreScreen.tsx`
+- `src/lib/scenarios.ts`
+- `src/lib/reflection.ts`
+
+## Scripts
+
+```bash
+pnpm install
+pnpm dev
+pnpm lint
+pnpm build
+pnpm preview
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Estado
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- `lint`: OK
+- `build`: OK
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Publicación en GitHub
+
+Si ya configuraste el remoto, sube con:
+
+```bash
+git push -u origin main
 ```
+
+Si GitHub pide autenticación, usa usuario + Personal Access Token (PAT).
